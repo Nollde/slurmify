@@ -1,23 +1,19 @@
-package:
+afdpackage:
   name: slurmify
-  version: "0.1.0"
+  version: 0.1.0
 
 source:
   path: ../
 
-build:
-  noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
-
 requirements:
   build:
-    - python >=3.6
+    - python>=3.6
     - pip
   run:
-    - python >=3.6
-    - dask >=2021.6.0
+    - python>=3.6
+    - dask>=2021.6.0
     - dask-jobqueue
-    - distributed >=2021.6.0
+    - distributed>=2021.6.0
 
 test:
   imports:
