@@ -1,0 +1,35 @@
+package:
+  name: slurmify
+  version: "0.1.0"
+
+source:
+  path: ../
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+
+requirements:
+  build:
+    - python >=3.6
+    - pip
+  run:
+    - python >=3.6
+    - dask >=2021.6.0
+    - dask-jobqueue
+    - distributed >=2021.6.0
+
+test:
+  imports:
+    - slurmify
+
+about:
+  home: https://github.com/nollde/slurmify
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: "A package to manage Dask clusters on SLURM systems and execute functions with Dask parallelization."
+
+extra:
+  recipe-maintainers:
+    - nollde
