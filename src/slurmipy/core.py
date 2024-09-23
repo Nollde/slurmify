@@ -11,7 +11,7 @@ from dask_jobqueue import SLURMCluster
 F = TypeVar("F", bound=Callable[..., Any])
 
 
-class Slurmify:
+class SlurmiPy:
     """
     A factory class for managing a Dask cluster on a SLURM-based system and
     executing functions using Dask parallelization.
@@ -45,7 +45,7 @@ class Slurmify:
     Usage Example:
         ```
         # Create a SLURM cluster with 4 jobs
-        factory = Slurmify(jobs=4, queue='short', project='my_project')
+        factory = SlurmiPy(jobs=4, queue='short', project='my_project')
 
         @factory.execute
         def process_data(data):
@@ -125,9 +125,9 @@ configs = {
     ),
 }
 
-slurm_factory = Slurmify(
-    jobs=1,
-    log_directory=os.getenv("GEN_SLURM"),
-    local_directory=os.getenv("GEN_SLURM"),
-    **configs["perlmutter_debug"],
-)
+# slurm_factory = SlurmiPy(
+#     jobs=1,
+#     log_directory=os.getenv("GEN_SLURM"),
+#     local_directory=os.getenv("GEN_SLURM"),
+#     **configs["perlmutter_debug"],
+# )

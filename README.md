@@ -1,4 +1,4 @@
-# Slurmify
+# SlurmiPy
 
 Run python functions on a SLURM cluster as easy as:
 ```
@@ -7,7 +7,7 @@ def hello_world():
     print("YAY, I am running via SLURM!")
 ```
 
-Slurmify provides a factory class for managing Dask clusters on SLURM-based systems and executing functions using Dask parallelization.
+SlurmiPy provides a factory class for managing Dask clusters on SLURM-based systems and executing functions using Dask parallelization.
 
 ## Installation
 
@@ -20,13 +20,13 @@ pip install .
 
 ## Usage
 
-Here's a basic example of how to use `SlurmFactory` on Perlmutter:
+Here's a basic example of how to use `SlurmiPy` on Perlmutter:
 
 ```python
-from slurmify import Slurmify, configs
+from slurmipy import SlurmiPy, configs
 
 # Create a SLURM cluster with 4 jobs
-slurm_cluster = Slurmify(jobs=4, **configs["perlmutter_debug"])
+slurm_cluster = SlurmiPy(jobs=4, **configs["perlmutter_debug"])
 
 @slurm_cluster.execute
 def process_data(data):
