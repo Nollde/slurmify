@@ -105,22 +105,28 @@ class SlurmiPy:
 
 
 configs = {
+    "perlmutter_shared_interactive": dict(
+        cores=1,
+        memory="1GB",
+        walltime="4:00:00",
+        job_extra_directives=["--qos=shared_interactive", "-C cpu"],
+    ),
+    "perlmutter_shared": dict(
+        cores=1,
+        memory="1GB",
+        walltime="24:00:00",
+        job_extra_directives=["--qos=shared", "-C cpu"],
+    ),
     "perlmutter_debug": dict(
         cores=1,
         memory="16GB",
         walltime="00:30:00",
         job_extra_directives=["--qos=debug", "-C cpu"],
     ),
-    "perlmutter_small": dict(
-        cores=1,
-        memory="16GB",
+    "perlmutter_node": dict(
+        cores=256,
+        memory="500GB",
         walltime="01:00:00",
-        job_extra_directives=["--qos=regular", "-C cpu"],
-    ),
-    "perlmutter_medium": dict(
-        cores=1,
-        memory="64GB",
-        walltime="08:00:00",
         job_extra_directives=["--qos=regular", "-C cpu"],
     ),
 }

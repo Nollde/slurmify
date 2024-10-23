@@ -7,26 +7,23 @@ def hello_world():
     print("YAY, I am running via SLURM!")
 ```
 
-SlurmiPy provides a factory class for managing Dask clusters on SLURM-based systems and executing functions using Dask parallelization.
+SlurmiPy provides a factory class for managing Dask clusters on SLURM-based systems and provides very easy exectution of python code on a SLURM cluster.
 
 ## Installation
 
-- Navigate to the directory containing `setup.py`.
-- Run the following command to build and install the package:
-
 ```bash
-pip install .
+pip install slurmipy
 ```
 
 ## Usage
 
-Here's a basic example of how to use `SlurmiPy` on Perlmutter:
+Here iss a basic example of how to use `SlurmiPy` on NERSCs' Perlmutter Supercomputer:
 
 ```python
 from slurmipy import SlurmiPy, configs
 
 # Create a SLURM cluster with 4 jobs
-slurm_cluster = SlurmiPy(jobs=4, **configs["perlmutter_debug"])
+slurm_cluster = SlurmiPy(jobs=4, **configs["perlmutter_shared_interactive"])
 
 @slurm_cluster.execute
 def process_data(data):
@@ -36,3 +33,4 @@ def process_data(data):
 result = process_data([1, 2, 3, 4])
 
 print(result)  # Output: [1, 4, 9, 16]
+```
